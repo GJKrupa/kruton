@@ -1,0 +1,8 @@
+kruton:
+  slack:
+    token: ${SLACK_TOKEN}
+    client: ${SLACK_CLIENT_ID}
+    verification:
+      token: ${SLACK_VERIFICATION_TOKEN}
+
+rtmUrl: https://slack.com/api/rtm.start?token={token}&simple_latest&no_unreads

@@ -8,5 +8,22 @@
     <artifactId>kruton-bot</artifactId>
     <version>1.0.1-SNAPSHOT</version>
 
+    <parent>
+        <groupId>uk.me.krupa.kruton</groupId>
+        <artifactId>kruton-parent</artifactId>
+        <version>1.0.4</version>
+    </parent>
+
+    <properties>
+        <maven.compiler.source>1.9</maven.compiler.source>
+        <maven.compiler.target>1.9</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>me.ramswaroop.jbot</groupId>
+            <artifactId>jbot</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
