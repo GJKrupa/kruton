@@ -1,6 +1,6 @@
 kruton:
   service:
-    fact: http://kruton-fact-service
+    fact: http://localhost:8090
   slack:
     token: ${SLACK_TOKEN}
     client: ${SLACK_CLIENT_ID}
