@@ -17,6 +17,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <fabric8.mode>kubernetes</fabric8.mode>
     </properties>
 
     <dependencies>
@@ -49,7 +50,6 @@
                         <id>install</id>
                         <phase>pre-integration-test</phase>
                         <goals>
-                            <goal>resource</goal>
                             <goal>build</goal>
                         </goals>
                     </execution>
