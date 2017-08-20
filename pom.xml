@@ -11,7 +11,7 @@
     <parent>
         <groupId>uk.me.krupa.kruton</groupId>
         <artifactId>kruton-parent</artifactId>
-        <version>1.0.6</version>
+        <version>1.0.9</version>
     </parent>
 
     <properties>
@@ -24,6 +24,64 @@
             <groupId>me.ramswaroop.jbot</groupId>
             <artifactId>jbot</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric8-maven-plugin</artifactId>
+                <version>3.5.25</version>
+                <executions>
+                    <execution>
+                        <id>install</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>resource</goal>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>${docker.image.base}/${project.artifactId}:${project.version}</name>
+                            <build>
+                                <from>java:openjdk-8-jre-alpine</from>
+                                <maintainer>Gerard Krupa (kruton@krupa.me.uk)</maintainer>
+                                <assembly>
+                                    <basedir>/app</basedir>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                                <tags>
+                                    <tag>latest</tag>
+                                </tags>
+                                <entryPoint>java -jar /app/${project.artifactId}-${project.version}.jar</entryPoint>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
