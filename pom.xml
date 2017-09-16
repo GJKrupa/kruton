@@ -4,7 +4,7 @@
 
     <groupId>uk.me.krupa.kruton</groupId>
     <artifactId>kruton-bot</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
 
     <parent>
         <groupId>uk.me.krupa.kruton</groupId>
@@ -15,7 +15,7 @@
     <scm>
         <connection>scm:git:git://github.com/GJKrupa/kruton-bot.git</connection>
         <developerConnection>scm:git:git@github.com:GJKrupa/kruton-bot.git</developerConnection>
-        <tag>kruton-bot-1.0.1</tag>
+        <tag>${project.version}</tag>
     </scm>
 
     <properties>
