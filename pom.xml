@@ -9,11 +9,20 @@
     <parent>
         <groupId>uk.me.krupa.kruton</groupId>
         <artifactId>kruton-parent</artifactId>
-        <version>1.0.9</version>
+        <version>1.0.11</version>
     </parent>
 
+    <licenses>
+        <license>
+            <name>Apache Licence Version 2.0</name>
+            <url>http://www.apache.org/licenses/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <scm>
-        <connection>scm:git:git://github.com/GJKrupa/kruton-bot.git</connection>
+        <url>https://github.com/GJKrupa/kruton-bot</url>
+        <connection>scm:git:git@github.com:GJKrupa/kruton-bot.git</connection>
         <developerConnection>scm:git:git@github.com:GJKrupa/kruton-bot.git</developerConnection>
         <tag>${project.version}</tag>
     </scm>
@@ -38,6 +47,30 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>uxian-kruton</id>
+            <url>https://packagecloud.io/uxian/kruton/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>packagecloud-uxian-kruton</id>
+            <url>packagecloud+https://packagecloud.io/uxian/kruton</url>
+        </repository>
+        <snapshotRepository>
+            <id>packagecloud-uxian-kruton</id>
+            <url>packagecloud+https://packagecloud.io/uxian/kruton</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <build>
         <plugins>
@@ -86,6 +119,13 @@
                 </configuration>
             </plugin>
         </plugins>
+        <extensions>
+            <extension>
+                <groupId>io.packagecloud.maven.wagon</groupId>
+                <artifactId>maven-packagecloud-wagon</artifactId>
+                <version>0.0.6</version>
+            </extension>
+        </extensions>
     </build>
 
 </project>
