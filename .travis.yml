@@ -1,4 +1,6 @@
 language: java
+script:
+  - mvn clean install -B
 
 sudo: required
 
